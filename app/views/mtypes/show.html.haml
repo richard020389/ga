@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @mtype.name
+%p
+  %b Type:
+  = @mtype.type
+%p
+  %b Atk:
+  = @mtype.atk
+%p
+  %b Def:
+  = @mtype.def
+%p
+  %b Hp:
+  = @mtype.hp
+%p
+  %b Exp:
+  = @mtype.exp
+%p
+  %b Lvl:
+  = @mtype.lvl
+
+= link_to 'Edit', edit_mtype_path(@mtype)
+\|
+= link_to 'Back', mtypes_path

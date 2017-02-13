@@ -1,0 +1,26 @@
+Out Mtypes
+- mtypes = Mtype.all - @map.mtypes
+%table
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th A
+      %th D
+      %th H
+      %th E
+      %th L
+      %th Operation
+
+  %tbody
+    - mtypes.each do |mtype|
+      %tr
+        %td= mtype.name
+        %td= mtype.type
+        %td= mtype.atk
+        %td= mtype.def
+        %td= mtype.hp
+        %td= mtype.exp
+        %td= mtype.lvl
+        %td
+          = link_to "+", controller: "maps",action:"add_mtype",id:@map, mtype: mtype.id

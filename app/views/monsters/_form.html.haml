@@ -1,0 +1,31 @@
+= form_for @monster do |f|
+  - if @monster.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@monster.errors.count, "error")} prohibited this monster from being saved:"
+      %ul
+        - @monster.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :type
+    = f.text_field :type
+  .field
+    = f.label :atk
+    = f.number_field :atk
+  .field
+    = f.label :def
+    = f.number_field :def
+  .field
+    = f.label :hp
+    = f.number_field :hp
+  .field
+    = f.label :exp
+    = f.number_field :exp
+  .field
+    = f.label :lvl
+    = f.number_field :lvl
+  .actions
+    = f.submit 'Save'

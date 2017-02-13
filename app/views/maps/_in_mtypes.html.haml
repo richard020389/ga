@@ -1,0 +1,53 @@
+In Mtypes
+- mtypes = @map.mtypes
+%table
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th A
+      %th D
+      %th H
+      %th E
+      %th L
+      %th Op
+      %th Add 
+      %th Count 
+
+  %tbody
+    - mtypes.each do |mtype|
+      %tr
+        %td= mtype.name
+        %td= mtype.type
+        %td= mtype.atk
+        %td= mtype.def
+        %td= mtype.hp
+        %td= mtype.exp
+        %td= mtype.lvl
+        %td
+          = link_to "-", controller: "maps",action:"remove_mtype",id:@map, mtype: mtype.id
+        %td
+          = link_to "+1", controller: "maps",action:"create_m_by_type",id:@map, mtype: mtype.id, count: 1
+        %td
+          = @map.monsters.where(mtype_id: mtype.id).count
+
+
+
+    %tr.lastline
+      %td Sum
+      %td 
+      %td 
+        =@map.monsters.sum(:atk  )
+      %td 
+        =@map.monsters.sum(:def  )
+      %td 
+        =@map.monsters.sum(:hp  )
+      %td 
+        =@map.monsters.sum(:exp  )
+      %td 
+        =@map.monsters.sum(:lvl  )
+      %td 
+      %td
+        = link_to "+1", controller: "maps",action:"create_m",id:@map, count: 1
+      %td  
+        = @map.monsters.count

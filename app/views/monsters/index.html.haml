@@ -1,0 +1,33 @@
+%h1 Listing monsters
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th Atk
+      %th Def
+      %th Hp
+      %th Exp
+      %th Lvl
+      %th
+      %th
+      %th
+
+  %tbody
+    - @monsters.each do |monster|
+      %tr
+        %td= monster.name
+        %td= monster.type
+        %td= monster.atk
+        %td= monster.def
+        %td= monster.hp
+        %td= monster.exp
+        %td= monster.lvl
+        %td= link_to 'Show', monster
+        %td= link_to 'Edit', edit_monster_path(monster)
+        %td= link_to 'Destroy', monster, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Monster', new_monster_path

@@ -1,0 +1,4 @@
+= form_for @user, url:{controller:'user', action:'create'} do |f|
+  = render 'user_form', :f => f
+  %p
+    = f.submit "Create"

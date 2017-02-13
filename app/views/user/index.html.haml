@@ -1,0 +1,20 @@
+%table
+  %tr
+    %th
+      Name  
+    %th
+      Lv
+    %th  
+      Oprate
+  - @users.each do |user|
+    - @user = user
+    %tr
+      %td
+        = link_to @user.name, :controller => 'user', :action => 'edit', :id => user
+      %td
+        =@user.lvl
+      %td
+        = link_to 'Delete', :controller => 'user', :action => 'destroy', :id => user
+
+= link_to 'New Event', :controller => 'user', :action => 'new' 
+

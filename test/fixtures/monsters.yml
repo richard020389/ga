@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  atk: 1
+  def: 1
+  hp: 1
+  exp: 1
+  lvl: 1
+
+two:
+  name: MyString
+  type: 
+  atk: 1
+  def: 1
+  hp: 1
+  exp: 1
+  lvl: 1

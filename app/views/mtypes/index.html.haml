@@ -1,0 +1,33 @@
+%h1 Listing mtypes
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Type
+      %th Atk
+      %th Def
+      %th Hp
+      %th Exp
+      %th Lvl
+      %th
+      %th
+      %th
+
+  %tbody
+    - @mtypes.each do |mtype|
+      %tr
+        %td= mtype.name
+        %td= mtype.type
+        %td= mtype.atk
+        %td= mtype.def
+        %td= mtype.hp
+        %td= mtype.exp
+        %td= mtype.lvl
+        %td= link_to 'Show', mtype
+        %td= link_to 'Edit', edit_mtype_path(mtype)
+        %td= link_to 'Destroy', mtype, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Mtype', new_mtype_path

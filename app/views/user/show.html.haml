@@ -1,0 +1,45 @@
+%table.table{ :style => "width:20em"}
+  %tr
+    %td.col-md-1
+      Name 
+    %td.col-md-1
+      = @user.name
+  %tr
+    %td
+      N 
+    %td
+      = @user.name
+  %tr
+    %td
+      A 
+    %td
+      = @user.atk
+  %tr
+    %td
+      D 
+    %td
+      = @user.def
+  %tr
+    %td
+      H 
+    %td
+      = @user.hp
+  %tr
+    %td
+      A 
+    %td
+      = @user.ap
+  %tr
+    %td
+      E 
+    %td
+      = @user.exp
+  %tr
+    %td
+      L 
+    %td
+      = @user.lvl
+
+= link_to 'Edit', :controller => 'user', :action => 'edit',:id => params[:id]  
+%p
+= link_to 'Back to index', :controller => 'user', :action => 'index' 
