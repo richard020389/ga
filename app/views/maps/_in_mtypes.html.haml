@@ -28,7 +28,9 @@ In Mtypes
           = link_to "-", controller: "maps",action:"remove_mtype",id:@map, mtype: mtype.id
         %td
           = link_to "+1", controller: "maps",action:"create_m_by_type",id:@map, mtype: mtype.id, count: 1
-        %td
+          = link_to "+5", controller: "maps",action:"create_m_by_type",id:@map, mtype: mtype.id, count: 5
+          = link_to "+10", controller: "maps",action:"create_m_by_type",id:@map, mtype: mtype.id, count: 10
+        %td.align_right
           = @map.monsters.where(mtype_id: mtype.id).count
 
 
@@ -49,5 +51,5 @@ In Mtypes
       %td 
       %td
         = link_to "+1", controller: "maps",action:"create_m",id:@map, count: 1
-      %td  
+      %td.align_right
         = @map.monsters.count
