@@ -69,6 +69,6 @@ class MtypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mtype_params
-      params.require(:mtype).permit(:name, :type, :atk, :def, :hp, :exp, :lvl)
+      params.require(:mtype).permit(:name, :monstertype, :atk, :def, :hp, :exp, :lvl)
     end
 end

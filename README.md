@@ -1,25 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+todo:
 
-Things you may want to cover:
+map add monsters提供 +5 +10
+参数随机（user，monsters）
+从外部导入基础数据（fe，sg等）
+自动生成生态逻辑
+  monster定时生成
+  user自动play
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+##########################################################
+finished :
 
-* Database creation
+生成 monsters时根据mtype参数生成
+github上传
 
-* Database initialization
 
-* How to run the test suite
+finished:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-"# ga" 

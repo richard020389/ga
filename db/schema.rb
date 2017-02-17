@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170209062831) do
+ActiveRecord::Schema.define(version: 20170215095157) do
 
   create_table "map_mtypeships", force: :cascade do |t|
     t.integer  "map_id"
@@ -29,14 +29,14 @@ ActiveRecord::Schema.define(version: 20170209062831) do
 
   create_table "monsters", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "monstertype"
     t.integer  "atk"
     t.integer  "def"
     t.integer  "hp"
     t.integer  "exp"
     t.integer  "lvl"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "mtype_id"
     t.integer  "map_id"
     t.index ["map_id"], name: "index_monsters_on_map_id"
@@ -45,14 +45,14 @@ ActiveRecord::Schema.define(version: 20170209062831) do
 
   create_table "mtypes", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "monstertype"
     t.integer  "atk"
     t.integer  "def"
     t.integer  "hp"
     t.integer  "exp"
     t.integer  "lvl"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
