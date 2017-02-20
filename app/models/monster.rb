@@ -8,12 +8,12 @@ class Monster < ApplicationRecord
   def default_values
     mtype = Mtype.find(self.mtype_id)   
     return if mtype == nil
-    self.name  ||= mtype.name+"_"
+    self.name         ||= mtype.name+"_"
     self.monstertype  ||= mtype.monstertype
-    self.atk   ||= mtype.atk  
-    self.def   ||= mtype.def    
-    self.hp    ||= mtype.hp    
-    self.exp   ||= mtype.exp    
-    self.lvl   ||= mtype.lvl    
+    self.atk          ||= randpara mtype.atk  
+    self.def          ||= randpara mtype.def    
+    self.hp           ||= randpara mtype.hp    
+    self.exp          ||= randpara mtype.exp    
+    self.lvl          ||= mtype.lvl    
   end
 end

@@ -4,3 +4,7 @@
 #   http_host: 'example.org',
 #   https: false
 # )
+  def randpara(para)
+    ## set rand +-30%
+    (para*rand(0.7 .. 1.3)).round
+  end
