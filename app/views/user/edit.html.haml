@@ -1,3 +1,7 @@
-= form_for @user, url:{controller:'user', action:'update', id:@user} do |f|
-  =render "user_form", f: f
-  = f.submit "Update"
+.row
+  .col-md-3
+    = form_for @user, url:{controller:'user', action:'update', id:@user} do |f|
+      =render "user_form", f: f
+      = f.submit "Update"
+  .col-md-2
+    = button_to("maps", maps_path, method: :get, class: "big_button")

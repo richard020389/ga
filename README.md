@@ -1,6 +1,8 @@
 # README
 
 todo:
+
+add m in map/show 
 play
 lv up
 从外部导入基础数据（fe，sg等）
@@ -12,6 +14,7 @@ lv up
 
 ##########################################################
 finished :
+show player in sidebar
 参数随机（user，monsters）
 
 map add monsters提供 +5 +10

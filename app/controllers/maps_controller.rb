@@ -65,8 +65,10 @@ class MapsController < ApplicationController
     each_count = (params[:count] || 1).to_i
     mtype = Mtype.find( params[:mtype])
     each_count.times  do |time|
-      monster = mtype.monsters.create()
-      @map.monsters << monster
+      if @map.size > @map.monsters.count
+        monster = mtype.monsters.create()
+        @map.monsters << monster
+      end
     end
     redirect_back(fallback_location: @map)
   end
@@ -76,8 +78,10 @@ class MapsController < ApplicationController
     mtypes = @map.mtypes
     mtypes.each do |mtype|
       each_count.times  do |time|
-        monster = mtype.monsters.create()
-        @map.monsters << monster
+        if @map.size > @map.monsters.count
+          monster = mtype.monsters.create()
+          @map.monsters << monster
+        end
       end
     end
     redirect_back(fallback_location: @map)

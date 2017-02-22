@@ -1,0 +1,37 @@
+-if session[:user_id] && @user = User.find(session[:user_id])
+  %table
+    %tr
+      %th
+        Name  
+      %th
+        a
+      %th
+        d
+      %th
+        h
+      %th
+        a
+      %th
+        ex
+      %th
+        lv
+    %tr
+      %td
+        =@user.name
+      %td
+        =@user.atk
+      %td
+        =@user.def
+      %td
+        =@user.hp
+      %td
+        =@user.ap
+      %td
+        =@user.exp
+      %td
+        =@user.lvl
+
+-else
+  =link_to "home",root_path
+
+  

@@ -4,6 +4,12 @@ class User < ApplicationRecord
   User_init_point = 5
 private
   def default_values
+    ## not init if have value
+    if self.atk && self.def && self.hp   
+      puts "skip init"
+      return
+    end
+    pp self
     @name  = ""   
     self.atk   = 1    
     self.def   = 1    

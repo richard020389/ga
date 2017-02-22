@@ -8,6 +8,7 @@ def show
 end
 def edit
   @user = User.find(params[:id])
+  session[:user_id] = @user.id
 end
 def destroy
   @user = User.find(params[:id])
