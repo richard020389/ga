@@ -2,18 +2,20 @@
 
 todo:
 
-add m in map/show 
 play
 lv up
 从外部导入基础数据（fe，sg等）
 自动生成生态逻辑
   monster定时生成
   user自动play
+add ma/res
+add skill
 
 
 
 ##########################################################
 finished :
+add m in map/show 
 show player in sidebar
 参数随机（user，monsters）
 

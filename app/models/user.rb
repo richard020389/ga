@@ -5,11 +5,9 @@ class User < ApplicationRecord
 private
   def default_values
     ## not init if have value
-    if self.atk && self.def && self.hp   
-      puts "skip init"
+    if self.id
       return
     end
-    pp self
     @name  = ""   
     self.atk   = 1    
     self.def   = 1    
@@ -27,6 +25,5 @@ private
         self.hp += 1
       end
     end
-
   end
 end

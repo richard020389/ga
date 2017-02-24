@@ -1,15 +1,44 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @map.name
-%p
-  %b Type:
-  = @map.type
-%p
-  %b Size:
-  = @map.size
 
-= link_to 'Edit', edit_map_path(@map)
-\|
-= link_to 'Back', maps_path
+.container_fluid
+  .row
+    .col-md-2
+      %p
+        %b Name:
+        = @map.name
+      %p
+        %b Type:
+        = @map.type
+      %p
+        %b Size:
+        = @map.size
+      = link_to 'Edit', edit_map_path(@map)
+      \|
+      = link_to 'Back', maps_path
+    .col-md-2
+      %table
+        %thead
+          %tr
+            %th Name
+            %th Type
+            %th A
+            %th D
+            %th H
+            %th E
+            %th L
+            %th 
+        %tbody
+          - @monsters = @map.monsters
+          - @monsters.each do |monster|
+            %tr
+              %td= monster.name
+              %td= monster.monstertype
+              %td= monster.atk
+              %td= monster.def
+              %td= monster.hp
+              %td= monster.exp
+              %td= monster.lvl
+              %td
+                =button_to "X", controller:"fmaps", action: "fight", monster_id: monster.id
+

@@ -8,15 +8,13 @@
       %th Size
       %th
       %th
-      %th
 
   %tbody
     - @maps.each do |map|
       %tr
-        %td= map.name
+        %td= link_to map.name, map
         %td= map.type
         %td= map.size
-        %td= link_to 'Show', map
         %td= link_to 'Edit', edit_map_path(map)
         %td= link_to 'Destroy', map, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

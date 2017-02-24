@@ -6,6 +6,10 @@ class Monster < ApplicationRecord
   validates_presence_of :mtype_id
   private
   def default_values
+    ## not init if have value
+    if self.id
+      return
+    end
     mtype = Mtype.find(self.mtype_id)   
     return if mtype == nil
     self.name         ||= mtype.name+"_"

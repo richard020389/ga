@@ -6,6 +6,10 @@ class Mtype < ApplicationRecord
 
   private
   def default_values
+    ## not init if have value
+    if self.id
+      return
+    end
     self.name   ||= "t"+ self.id.to_s  
     self.monstertype   ||= "human"  
     self.atk   ||= 1  
