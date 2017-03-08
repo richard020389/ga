@@ -3,6 +3,8 @@
 todo:
 
 play
+adjust init point for speed
+add battle log and attack log
 lv up
 从外部导入基础数据（fe，sg等）
 自动生成生态逻辑

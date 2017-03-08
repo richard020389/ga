@@ -40,5 +40,5 @@
               %td= monster.exp
               %td= monster.lvl
               %td
-                =button_to "X", controller:"fmaps", action: "fight", monster_id: monster.id
+                =link_to("X", new_battle_path(params:{monster_id: monster.id, map_id: @map.id}) )
 

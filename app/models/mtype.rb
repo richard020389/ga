@@ -14,6 +14,7 @@ class Mtype < ApplicationRecord
     self.monstertype   ||= "human"  
     self.atk   ||= 1  
     self.def   ||= 1  
+    self.speed ||= 1  
     self.hp    ||= 1 
     self.exp   ||= 1  
     self.lvl   ||= 1  

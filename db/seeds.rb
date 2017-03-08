@@ -1,10 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.all.each do |user|
+  user.maxhp = user.hp if user.maxhp == nil
+  user.save
+end
 
 Mtype.all.each do |mtype|
   mtype.name   = "t"+mtype.id.to_s if   mtype.name ==nil || mtype.name ==""
@@ -17,6 +14,7 @@ Monster.all.each do |monster|
     return if mtype == nil
     monster.name  = mtype.name+"_"+monster.id.to_s if monster.name ==nil || monster.name ==""
     monster.monstertype  = mtype.monstertype if  monster.monstertype==nil || monster.monstertype==""
+    monster.maxhp = monster.hp if monster.maxhp == nil
     monster.save
 end
 

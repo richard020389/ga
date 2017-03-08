@@ -1,0 +1,52 @@
+%table.table{ :style => "width:20em"}
+  %tr
+    %th.col-md-1
+    %th.col-md-1
+      = @user.name
+    %th.col-md-1
+      = @monster.name
+  %tr
+    %th
+      A 
+    %td
+      = @user.atk
+    %td
+      = @monster.atk
+  %tr
+    %th
+      D 
+    %td
+      = @user.def
+    %td
+      = @monster.def
+  %tr
+    %th
+      H 
+    %td
+      .progress
+        .progress-bar.progress-bar-success.active{:style => "width: #{@user.hp * 100.0 / @user.maxhp}%;"}
+          = @user.hp
+          \/
+          = @user.maxhp
+    %td
+      .progress
+        .progress-bar.progress-bar-success.active{:style => "width: #{@monster.hp * 100.0 / @monster.maxhp}%;"}
+          = @monster.hp
+          \/
+          = @monster.maxhp
+  %tr
+    %th
+      E 
+    %td
+      = @user.exp
+    %td
+      = @monster.exp
+  %tr
+    %th
+      L 
+    %td
+      = @user.lvl
+    %td
+      = @monster.lvl
+
+= link_to 'back to map', :controller => 'maps', :action => 'show',:id => params[:map_id] 

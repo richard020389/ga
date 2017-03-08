@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215095157) do
+ActiveRecord::Schema.define(version: 20170307090924) do
 
   create_table "map_mtypeships", force: :cascade do |t|
     t.integer  "map_id"
@@ -35,10 +35,12 @@ ActiveRecord::Schema.define(version: 20170215095157) do
     t.integer  "hp"
     t.integer  "exp"
     t.integer  "lvl"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "mtype_id"
     t.integer  "map_id"
+    t.integer  "maxhp"
+    t.integer  "speed",       default: 2
     t.index ["map_id"], name: "index_monsters_on_map_id"
     t.index ["mtype_id"], name: "index_monsters_on_mtype_id"
   end
@@ -51,8 +53,9 @@ ActiveRecord::Schema.define(version: 20170215095157) do
     t.integer  "hp"
     t.integer  "exp"
     t.integer  "lvl"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "speed",       default: 1
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,8 +66,10 @@ ActiveRecord::Schema.define(version: 20170215095157) do
     t.integer  "ap"
     t.integer  "exp"
     t.integer  "lvl"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "maxhp"
+    t.integer  "speed",      default: 2
   end
 
 end

@@ -42,6 +42,6 @@ private
   # permit list between create and update. Also, you can specialize
   # this method with per-user checking of permissible attributes.
   def user_params
-    params.require(:user).permit(:name,:atk,:def,:hp,:ap, :lvl,:exp)
+    params.require(:user).permit(:name,:atk,:def,:hp,:maxhp, :ap, :lvl,:exp)
   end
 end
