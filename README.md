@@ -2,7 +2,6 @@
 
 todo:
 
-navbar
 lv up
 从外部导入基础数据（fe，sg等）
 自动生成生态逻辑
@@ -15,6 +14,7 @@ add skill
 
 ##########################################################
 finished :
+navbar
 add battle log and attack log
 add m in map/show 
 show player in sidebar

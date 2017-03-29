@@ -5,6 +5,7 @@ def index
 end
 def show
   @user = User.find(params[:id])
+  session[:user_id] = @user.id
 end
 def edit
   @user = User.find(params[:id])

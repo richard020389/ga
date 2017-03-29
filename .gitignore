@@ -21,5 +21,6 @@
 .byebug_history
 
 # Ignore vi swp file
-.swp
+*.swp
+*.swo
 
