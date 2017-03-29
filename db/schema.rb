@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307090924) do
+ActiveRecord::Schema.define(version: 20170328075322) do
+
+  create_table "battlelines", force: :cascade do |t|
+    t.text     "utext"
+    t.text     "mtext"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "battle_id"
+  end
+
+  create_table "battles", force: :cascade do |t|
+    t.text     "userBefore"
+    t.text     "userAfter"
+    t.text     "monsterBefore"
+    t.text     "monsterAfter"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "user_id"
+    t.string   "status"
+  end
 
   create_table "map_mtypeships", force: :cascade do |t|
     t.integer  "map_id"

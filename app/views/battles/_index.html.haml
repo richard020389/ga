@@ -1,0 +1,23 @@
+-@battles = @user.battles
+%table.table{ :style => "width:25em"}
+  %tr
+    %th.col-md-1
+      Name
+    %th.col-md-1
+      Type
+    %th.col-md-1
+      Time
+    %th.col-md-1
+      Status
+  - @battles.each do |battle|
+    - monster = JSON.load battle.monsterBefore
+    - if monster 
+      %tr
+        %td
+          = link_to monster["name"],battle
+        %td
+          = monster["monstertype"]
+        %td
+          = battle.updated_at
+        %td
+          = battle.status

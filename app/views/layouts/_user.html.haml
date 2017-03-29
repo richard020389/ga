@@ -19,7 +19,7 @@
         lv
     %tr
       %td
-        =@user.name
+        = link_to @user.name, :controller => 'user', :action => 'edit', :id => @user.id
       %td
         =@user.atk
       %td

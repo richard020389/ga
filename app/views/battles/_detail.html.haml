@@ -1,0 +1,148 @@
+- ubefore = JSON.load @battle.userBefore
+- uafter = JSON.load @battle.userAfter
+- mbefore = JSON.load @battle.monsterBefore
+- mafter = JSON.load @battle.monsterAfter
+%table 
+  %tr
+    %th Time
+    %th Stauts
+  %tr
+    %td
+      = @battle.updated_at
+    %td
+      = @battle.status
+    
+
+%table
+  %tr
+    %th
+    %th User
+    %th a
+    %th d
+    %th s
+    %th h
+    %th l
+    %th e
+    %th Mons
+    %th Mtype
+    %th a
+    %th d
+    %th s
+    %th h
+    %th l
+    %th e
+  %tr
+    %th Before
+    %td
+      = ubefore["name"]
+    %td
+      = ubefore["atk"]
+    %td
+      = ubefore["def"]
+    %td
+      = ubefore["speed"]
+    %td
+      = ubefore["hp"]
+      \/
+      = ubefore["maxhp"]
+    %td
+      = ubefore["lvl"]
+    %td
+      = ubefore["exp"]
+    %td
+      = mbefore["name"]
+    %td
+      = mbefore["monstertype"]
+    %td
+      = mbefore["atk"]
+    %td
+      = mbefore["def"]
+    %td
+      = mbefore["speed"]
+    %td
+      = mbefore["hp"]
+      \/
+      = mbefore["maxhp"]
+    %td
+      = mbefore["lvl"]
+    %td
+      = mbefore["exp"]
+
+  - @battle.battlelines.each do |line|
+    - u =  JSON.load line.utext
+    - m =  JSON.load line.mtext
+    %tr
+      %th 
+      %td
+        = u["name"]
+      %td
+        = u["atk"]
+      %td
+        = u["def"]
+      %td
+        = u["speed"]
+      %td
+        = u["hp"]
+        \/
+        = u["maxhp"]
+      %td
+        = u["lvl"]
+      %td
+        = u["exp"]
+      %td
+        = m["name"]
+      %td
+        = m["monstertype"]
+      %td
+        = m["atk"]
+      %td
+        = m["def"]
+      %td
+        = m["speed"]
+      %td
+        = m["hp"]
+        \/
+        = m["maxhp"]
+      %td
+        = m["lvl"]
+      %td
+        = m["exp"]
+
+  %tr
+    %th After
+    %td
+      = uafter["name"]
+    %td
+      = uafter["atk"]
+    %td
+      = uafter["def"]
+    %td
+      = uafter["speed"]
+    %td
+      = uafter["hp"]
+      \/
+      = uafter["maxhp"]
+    %td
+      = uafter["lvl"]
+    %td
+      = uafter["exp"]
+    %td
+      = mafter["name"]
+    %td
+      = mafter["monstertype"]
+    %td
+      = mafter["atk"]
+    %td
+      = mafter["def"]
+    %td
+      = mafter["speed"]
+    %td
+      = mafter["hp"]
+      \/
+      = mafter["maxhp"]
+    %td
+      = mafter["lvl"]
+    %td
+      = mafter["exp"]
+%table
+

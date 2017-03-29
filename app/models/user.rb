@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   after_initialize :default_values
   validates_uniqueness_of :name
+  has_many :battles,:dependent => :destroy
   User_init_point = 5
   attr_accessor :trig
 private
