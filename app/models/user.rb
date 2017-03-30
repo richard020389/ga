@@ -3,7 +3,15 @@ class User < ApplicationRecord
   validates_uniqueness_of :name
   has_many :battles,:dependent => :destroy
   User_init_point = 5
+  User_lvl_point = 2
   attr_accessor :trig
+  def lvl_up
+    if self.exp >= 2000
+      self.exp -= 2000
+      self.lvl += 1
+      add_point User_lvl_point
+    end
+  end
 private
   def default_values
     ## not init if have value
@@ -13,24 +21,33 @@ private
     @name  = ""   
     self.atk   = 1    
     self.def   = 1    
-    self.speed   = 1    
-    self.maxhp    = 5   
+    self.speed = 1    
+    self.maxhp = 5   
     self.hp    =  self.maxhp   
     self.ap    = 10    
     self.exp   = 0    
     self.lvl   = 1    
-    User_init_point.times do |p|
+    add_point User_init_point
+    self.trig = 0
+  end
+  def add_point(point)
+    message=""
+    point.times do |p|
       r= rand(0..3)
       if r == 0
         self.atk += 1
+        message+="atk+1\n"
       elsif r == 1
         self.def += 1
+        message+="def+1\n"
       elsif r == 2
-        self.hp += 1
+        self.maxhp += 1
+        message+="maxhp+1\n"
       elsif r == 3
         self.speed += 1
+        message+="speed+1\n"
       end
     end
-    self.trig = 0
+    message
   end
 end

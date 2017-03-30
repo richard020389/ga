@@ -26,8 +26,10 @@ class BattlesController < ApplicationController
     ## user win 
     if(@monster.hp <= 0)
       @battle.status = "win"
-      message =  "user win, gain #{@monster.exp}"
-      @user.exp += @monster.exp
+      exp = calc_exp(@user.lvl, @monster.lvl)
+      message =  "user win, gain #{exp}"
+      @user.exp += exp
+      message = message + "\n" + @user.lvl_up.to_s
       @user.hp = @user.maxhp
       @user.save
       @monster.destroy
@@ -35,8 +37,9 @@ class BattlesController < ApplicationController
     elsif(@user.hp <= 0)
       ## penalty
       @battle.status = "lost"
-      message =  "user lost, lost #{@monster.exp}"
-      @user.exp -= @monster.exp
+      exp = calc_exp(@user.lvl, @monster.lvl)
+      message =  "user lost, lost #{exp}"
+      @user.exp -= exp
       @user.hp = @user.maxhp
       @user.save
     else
@@ -91,11 +94,38 @@ class BattlesController < ApplicationController
 
   private
     def save_detail_log
-      battleline = @battle.battlelines.create()
-      battleline.utext = @user.to_json
-      battleline.mtext = @monster.to_json
-      battleline.save
+      battleline = @battle.battlelines.create(utext: @user.to_json, mtext: @monster.to_json)
     end
+
+    def calc_exp(ulvl,mlvl)
+      d = mlvl - ulvl
+      e = 0
+      if d <= -5
+        e = 0
+      elsif d == -4
+        e = 1
+      elsif d == -3
+        e = 4
+      elsif d == -2
+        e = 7
+      elsif d == -1
+        e = 9
+      elsif d == 0
+        e = 10
+      elsif d == 1
+        e = 11
+      elsif d == 2
+        e = 13
+      elsif d == 3
+        e = 16
+      elsif d == 4
+        e = 19
+      elsif d >= 5
+        e = 20 
+      end
+      e = e*10
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_battle
       @battle = Battle.find(params[:id])

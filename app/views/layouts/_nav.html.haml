@@ -16,6 +16,9 @@
             Users 
             <b class="caret"></b>
           %ul.dropdown-menu
+            %li
+              = link_to "Users", user_index_path
+            %li.divider{:role => "separator"}
             - User.all.each do |user|
               %li
                 = link_to user.name , edit_user_path(user.id)
@@ -25,9 +28,24 @@
             Maps 
             <b class="caret"></b>
           %ul.dropdown-menu
+            %li
+              = link_to "Maps", maps_path
+            %li.divider{:role => "separator"}
             - Map.all.each do |map|
               %li
                 = link_to map.name , map_path(map.id)
+      %ul.nav.navbar-nav
+        %li.dropdown
+          = link_to mtypes_path, :'data-toggle' => 'dropdown', :class => 'dropdown-toggle' do
+            Mtypes 
+            <b class="caret"></b>
+          %ul.dropdown-menu
+            %li
+              = link_to "Mtypes", mtypes_path
+            %li.divider{:role => "separator"}
+            - Mtype.all.each do |mtype|
+              %li
+                = link_to mtype.name , edit_mtype_path(mtype.id)
       %ul.nav.navbar-nav.navbar-right
         %li
           = render 'layouts/user'
