@@ -2,7 +2,6 @@
 
 todo:
 
-battle log列表分页（倒序）
 
 从外部导入基础数据（fe，sg等）
 自动生成生态逻辑
@@ -17,6 +16,7 @@ add skill
 
 ##########################################################
 finished :
+battle log列表分页（倒序）
 navbar + mtype
 lv up
 navbar

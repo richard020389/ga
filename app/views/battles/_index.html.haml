@@ -1,5 +1,6 @@
--@battles = @user.battles
-%table.table{ :style => "width:25em"}
+/-@battles = @user.battles
+-@battles = Kaminari.paginate_array(@user.battles.order(updated_at: :desc), total_count: @user.battles.count ).page(params[:page]).per(5)
+%table.table
   %tr
     %th.col-md-1
       Name
@@ -21,3 +22,4 @@
           = battle.updated_at
         %td
           = battle.status
+= paginate @battles, :theme => 'twitter-bootstrap-3'
