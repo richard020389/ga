@@ -14,6 +14,10 @@ class Monster < ApplicationRecord
     end
     mtype = Mtype.find(self.mtype_id)   
     return if mtype == nil
+    puts "#################3"
+    puts mtype
+    puts mtype.speed
+    puts "#################3"
     self.name         ||= mtype.name+"_"
     self.monstertype  ||= mtype.monstertype
     self.atk          ||= randpara mtype.atk  

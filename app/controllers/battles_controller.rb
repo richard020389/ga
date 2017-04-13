@@ -11,12 +11,22 @@ class BattlesController < ApplicationController
   def new
     @user = User.find_by_id(session[:user_id])
     @monster = Monster.find_by_id(params[:monster_id])
+    @map = Map.find_by_id(params[:map_id])
+    @mGroup = @map.monsters
     ## skip out if error
-    if !(@user && @monster)
+    if (@user && @monster)
+      fight
+    elsif (@user && @mGroup.count>1)
+      @mGroup.each do |monster|
+        @monster = monster
+        fight
+      end
+    else
       puts "no user or monster"
       redirect_back(fallback_location: maps_path)
-      return
     end
+  end
+  def fight
     @battle = @user.battles.create()
     @battle.userBefore = @user.to_json
     @battle.monsterBefore = @monster.to_json
@@ -52,7 +62,6 @@ class BattlesController < ApplicationController
     @battle.monsterAfter = @monster.to_json
     flash.now[:notice] = message
     puts message
-
     @battle.save()
   end
 

@@ -3,11 +3,11 @@
 todo:
 
 
-从外部导入基础数据（fe，sg等）
 自动生成生态逻辑
   monster定时生成
   user自动play
   user自动回复
+ajax
 成长率
 add ma/res
 add skill
@@ -16,6 +16,7 @@ add skill
 
 ##########################################################
 finished :
+从外部导入基础数据（fe，sg等）
 battle log列表分页（倒序）
 navbar + mtype
 lv up

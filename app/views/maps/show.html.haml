@@ -16,7 +16,9 @@
       = link_to 'Edit', edit_map_path(@map)
       \|
       = link_to 'Back', maps_path
-    .col-md-2
+    .col-md-6
+      =link_to("X", new_battle_path(params:{ map_id: @map.id}) )
+
       %table
         %thead
           %tr
@@ -40,5 +42,5 @@
               %td= monster.exp
               %td= monster.lvl
               %td
-                =link_to("X", new_battle_path(params:{monster_id: monster.id, map_id: @map.id}) )
+                =link_to("X", new_battle_path(params:{map_id: @map.id,monster_id: monster.id}) )
 
