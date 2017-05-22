@@ -6,7 +6,7 @@ todo:
 自动生成生态逻辑
   monster定时生成
   user自动play
-  user自动回复
+  user自动回复,ap机制
 ajax
 成长率
 add ma/res
